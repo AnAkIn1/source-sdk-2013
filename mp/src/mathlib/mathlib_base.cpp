@@ -35,6 +35,17 @@
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
+#ifndef _WIN32
+__asm__(".symver __log_finite,log@GLIBC_2.0");
+__asm__(".symver __atan2f_finite,atan2f@GLIBC_2.0");
+__asm__(".symver __atan2_finite,atan2@GLIBC_2.0");
+__asm__(".symver __pow_finite,pow@GLIBC_2.0");
+__asm__(".symver __acosf_finite,acosf@GLIBC_2.0");
+__asm__(".symver __asin_finite,asin@GLIBC_2.0");
+__asm__(".symver __acos_finite,acos@GLIBC_2.0");
+__asm__(".symver __fmodf_finite,fmodf@GLIBC_2.0");
+#endif
+
 bool s_bMathlibInitialized = false;
 
 #ifdef PARANOID

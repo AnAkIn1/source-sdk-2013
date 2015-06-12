@@ -15,6 +15,10 @@
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
+#ifndef _WIN32
+__asm__(".symver __pow_finite,pow@GLIBC_2.0");
+#endif
+
 //-----------------------------------------------------------------------------
 // Gamma conversion support
 //-----------------------------------------------------------------------------

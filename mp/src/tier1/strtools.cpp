@@ -77,6 +77,10 @@
 #endif
 #include "tier0/memdbgon.h"
 
+#ifndef _WIN32
+__asm__(".symver __pow_finite,pow@GLIBC_2.0");
+#endif
+
 static int FastToLower( char c )
 {
 	int i = (unsigned char) c;
