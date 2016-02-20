@@ -382,7 +382,8 @@ private:
 
 	virtual void				Create( const char *pName, const char *pDefaultValue, int flags = 0,
 									const char *pHelpString = 0, bool bMin = false, float fMin = 0.0,
-									bool bMax = false, float fMax = false, FnChangeCallback_t callback = 0 );
+                                                                        bool bMax = false, float fMax = false, bool bCompMin = false, float fCompMin = 0.0,
+                                                                        bool bCompMax = false, float fCompMax = 0.0, FnChangeCallback_t callback = 0 );
 
 	// Used internally by OneTimeInit to initialize.
 	virtual void				Init();
@@ -411,9 +412,16 @@ private:
 	float						m_fMinVal;
 	bool						m_bHasMax;
 	float						m_fMaxVal;
-	
+
+        bool						m_bHasCompetitiveMin;
+        float						m_fCompetitiveMinVal;
+        bool						m_bHasCompetitiveMax;
+        float						m_fCompetitiveMaxVal;
+
+        bool 						m_bCompetitiveMode;
+
 	// Call this function when ConVar changes
-	FnChangeCallback_t			m_fnChangeCallback;
+        FnChangeCallback_t			m_fnChangeCallback;
 };
 
 
