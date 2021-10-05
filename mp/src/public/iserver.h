@@ -33,6 +33,8 @@ public:
 	virtual IClient	*GetClient( int index ) = 0; // returns interface to client 
 	virtual int		GetClientCount() const = 0; // returns number of clients slots (used & unused)
 	virtual netadr_t GetPublicAddress() = 0;
+	// added in oct 5 21 tf2 update
+	virtual bool            IsUsingFakeIP( void ) const = 0;
 	virtual int		GetLocalUDPPort( void ) const = 0; // returns current used UDP port
 	virtual float	GetTime( void ) const = 0;	// returns game world time
 	virtual int		GetTick( void ) const = 0;	// returns game world tick
